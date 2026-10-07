@@ -37,7 +37,7 @@ class DocuBot:
         docs = []
         pattern = os.path.join(self.docs_folder, "*.*")
         for path in glob.glob(pattern):
-            if path.endswith(".md") or path.endswith(".txt"):
+            if os.path.isfile(path) and (path.endswith(".md") or path.endswith(".txt")):
                 with open(path, "r", encoding="utf8") as f:
                     text = f.read()
                 filename = os.path.basename(path)
